@@ -1,0 +1,41 @@
+<ng-container
+  *ngIf="inverse && !hideLoadMore"
+  [ngTemplateOutlet]="loadMoreTemplate">
+</ng-container>
+
+<ng-content></ng-content>
+
+<ng-container
+  *ngIf="!inverse && !hideLoadMore"
+  [ngTemplateOutlet]="loadMoreTemplate">
+</ng-container>
+
+<ng-template #loadMoreTemplate>
+  <ng-container *ngIf="!paginator?.complete?.value && !paginator?.loading?.value">
+    <ng-template
+      [ngTemplateOutlet]="paginator?.error?.value ?
+        (customLoadMoreErrorTemplate || null) : ( customLoadMoreButtonTemplate || defaultLoadMoreButtonTemplate )"
+      [ngTemplateOutletContext]="{ $implicit: paginator?.loadMore?.bind(paginator) }"></ng-template>
+    <ng-template
+      #defaultLoadMoreButtonTemplate
+      let-loadMore>
+      <div class="opal-fx-row opal-fx-justify-center opal-mt-4 small">
+        <button
+          mat-stroked-button
+          (click)="loadMore(); $event.stopPropagation()">
+          Load more
+        </button>
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <ng-container *ngIf="loader && !paginator?.complete?.value && paginator?.loading?.value">
+    <ng-template [ngTemplateOutlet]="customLoaderTemplate || defaultLoaderTemplate"></ng-template>
+    <ng-template #defaultLoaderTemplate>
+      <div class="opal-fx-row opal-fx-justify-center">
+        <mat-spinner [diameter]="50"></mat-spinner>
+      </div>
+    </ng-template>
+  </ng-container>
+
+</ng-template>

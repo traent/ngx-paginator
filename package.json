@@ -1,0 +1,22 @@
+{
+  "name": "@traent/ngx-paginator",
+  "version": "0.0.3",
+  "author": {
+    "name": "Traent S.r.l."
+  },
+  "license": "Apache License 2.0",
+  "scripts": {
+    "doc:common": "compodoc -p ./tsconfig.doc.json --hideGenerator --name '@traent/ngx-paginator'",
+    "doc:generate": "npm run doc:lib:common",
+    "doc:serve": "npm run doc:lib:common -- --serve"
+  },
+  "peerDependencies": {
+    "@angular/common": "^14.1.2",
+    "@angular/core": "^14.1.2",
+    "@angular/material": "^14.1.2",
+    "@ngneat/until-destroy": "^9.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.2.0"
+  }
+}
