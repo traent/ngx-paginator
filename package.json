@@ -1,27 +1,60 @@
 {
-  "name": "@traent/ngx-paginator",
-  "version": "0.1.1",
-  "author": {
-    "name": "Traent S.r.l."
-  },
-  "license": "Apache License 2.0",
+  "name": "ngx-paginator",
+  "version": "0.0.0",
   "scripts": {
-    "doc:common": "compodoc -p ./tsconfig.doc.json --hideGenerator --name '@traent/ngx-paginator'",
-    "doc:generate": "npm run doc:lib:common",
-    "doc:serve": "npm run doc:lib:common -- --serve"
+    "ng": "ng",
+    "tw": "tailwind",
+    "start": "ng serve",
+    "build": "npm run build:lib",
+    "watch": "ng build @traent/ngx-paginator --watch --configuration development",
+    "lint:lib": "ng lint --project @traent/ngx-paginator",
+    "tailwind:lib": "npm run tw -- -c projects/traent/ngx-paginator/tailwind.config.js -i projects/traent/ngx-paginator/assets/index.scss -o dist/traent/ngx-paginator/assets/styles.min.scss --minify",
+    "build:lib": "ng build --project @traent/ngx-paginator --configuration production && npm run tailwind:lib",
+    "serve:example": "ng serve --project example-app",
+    "build:example": "ng build --project example-app --configuration production",
+    "lint:example": "ng lint --project example-app"
   },
-  "peerDependencies": {
-    "@angular/common": "^14.1.2",
-    "@angular/core": "^14.1.2",
-    "@angular/material": "^14.1.2",
-    "@ngneat/until-destroy": "^9.0.0"
-  },
+  "private": true,
   "dependencies": {
-    "tslib": "^2.2.0"
+    "@angular/animations": "^14.2.0",
+    "@angular/common": "^14.2.0",
+    "@angular/compiler": "^14.2.0",
+    "@angular/core": "^14.2.0",
+    "@angular/forms": "^14.2.0",
+    "@angular/material": "^14.2.7",
+    "@angular/platform-browser": "^14.2.0",
+    "@angular/platform-browser-dynamic": "^14.2.0",
+    "@angular/router": "^14.2.0",
+    "@ngneat/until-destroy": "^9.2.3",
+    "@traent/design-system": "^0.0.7",
+    "rxjs": "^7.5.7",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
   },
-  "exports": {
-    "./assets/styles.min": {
-      "sass": "./assets/styles.min.scss"
-    }
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.10",
+    "@angular-eslint/builder": "14.4.0",
+    "@angular-eslint/eslint-plugin": "14.4.0",
+    "@angular-eslint/eslint-plugin-template": "14.4.0",
+    "@angular-eslint/schematics": "14.4.0",
+    "@angular-eslint/template-parser": "14.4.0",
+    "@angular/cli": "~14.2.9",
+    "@angular/compiler-cli": "^14.2.0",
+    "@types/jasmine": "~4.0.0",
+    "jasmine-core": "~4.3.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "@typescript-eslint/eslint-plugin": "5.43.0",
+    "@typescript-eslint/parser": "5.43.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.28.0",
+    "eslint-plugin-import": "^2.27.5",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "ng-packagr": "^14.2.0",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "typescript": "~4.7.2"
   }
 }
