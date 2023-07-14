@@ -1,7 +1,7 @@
 {
-  "extends": "../../.eslintrc.json",
+  "root": true,
   "ignorePatterns": [
-    "!**/*"
+    "projects/**/*"
   ],
   "overrides": [
     {
@@ -10,17 +10,21 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/ngx-t3-paginator/tsconfig.lib.json",
-          "projects/ngx-t3-paginator/tsconfig.spec.json"
+          "tsconfig.json"
         ],
         "createDefaultProgram": true
       },
+      "extends": [
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:import/errors"
+      ],
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
           {
             "type": "attribute",
-            "prefix": "ngxT3",
+            "prefix": "ngx",
             "style": "camelCase"
           }
         ],
@@ -28,15 +32,70 @@
           "error",
           {
             "type": "element",
-            "prefix": "ngx-t3",
+            "prefix": "ngx",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@typescript-eslint/member-ordering": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/prefer-readonly": "error",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "^_",
+            "varsIgnorePattern": "^_"
+          }
+        ],
+        "@typescript-eslint/no-floating-promises": [
+          "error"
+        ],
+        "no-unused-vars": "off",
+        "arrow-parens": [
+          "error",
+          "always"
+        ],
+        "class-methods-use-this": "error",
+        "comma-dangle": [
+          "error",
+          "always-multiline"
+        ],
+        "import/no-unresolved": "off",
+        "import/named": "off",
+        "import/order": [
+          "error",
+          {
+            "pathGroups": [
+              {
+                "pattern": "@traent/**",
+                "group": "external",
+                "position": "after"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": [
+              "builtin"
+            ],
+            "groups": [
+              "builtin",
+              "external"
+            ],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            }
+          }
+        ],
+        "no-multiple-empty-lines": "error",
+        "no-underscore-dangle": "off",
+        "no-console": "error"
       }
     },
     {
       "files": [
         "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
       ],
       "rules": {}
     }

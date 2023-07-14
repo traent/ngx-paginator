@@ -39,7 +39,11 @@ class AppModule {}
 
 ## API & Examples
 
-Coming Soon.
+The example app can be launched using `npm run serve:example`.
+
+Please note that the `example-app` depends from `@traent/design-system` and in particular from its `fonts.scss` and `material/theme` configurations and styles.
+
+In it, you can find a simple usage of the component `ngx-t3-paginator-list` that is used to show paginated lists.
 
 ## Building & Publishing
 

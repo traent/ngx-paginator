@@ -1,0 +1,30 @@
+<div class="tw-flex tw-flex-col tw-items-center tw-h-[100vh] tw-overflow-scroll tw-mx-12">
+  <span class="tw-ml-5 tw-font-bold">ngx-t3-paginator-list</span>
+
+  <div class="container tw-mt-2 tw-w-full">
+    <ngx-t3-paginator-list
+      *ngIf="blockchainPaginator$ | async as paginator"
+      [paginator]="paginator">
+      <ng-container *ngFor="let blockchain$ of paginator.items.value; first as first">
+        <div
+          *ngIf="blockchain$ | async as blockchain"
+          class="content tw-cursor-pointer tw-p-2 tw-w-72 tw-my-2">
+          <div class="tw-flex tw-flex-row tw-justify-between tw-w-full">
+            <span
+              [class.tw-mt-1]="!first"
+              class="tw-block tw-truncate tw-cursor-pointer">
+              {{ blockchain.name }}
+            </span>
+
+            <span
+              [class.tw-mt-1]="!first"
+              class="tw-block tw-truncate tw-cursor-pointer">
+              {{ blockchain.nativeCurrency }}
+            </span>
+          </div>
+        </div>
+      </ng-container>
+    </ngx-t3-paginator-list>
+
+  </div>
+</div>

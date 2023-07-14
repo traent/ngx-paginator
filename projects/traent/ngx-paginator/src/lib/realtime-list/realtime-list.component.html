@@ -19,7 +19,7 @@
     <ng-template
       #defaultLoadMoreButtonTemplate
       let-loadMore>
-      <div class="opal-fx-row opal-fx-justify-center opal-mt-4 small">
+      <div class="tw-flex tw-flex-row tw-justify-center tw-mt-4 small">
         <button
           mat-stroked-button
           (click)="loadMore(); $event.stopPropagation()">
@@ -32,7 +32,7 @@
   <ng-container *ngIf="loader && !list?.complete?.value && list?.loading?.value">
     <ng-template [ngTemplateOutlet]="customLoaderTemplate || defaultLoaderTemplate"></ng-template>
     <ng-template #defaultLoaderTemplate>
-      <div class="opal-fx-row opal-fx-justify-center">
+      <div class="tw-flex tw-flex-row tw-justify-center">
         <mat-spinner [diameter]="50"></mat-spinner>
       </div>
     </ng-template>

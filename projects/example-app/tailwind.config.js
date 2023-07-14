@@ -6,8 +6,10 @@ const prefix = 'tw-';
 
 module.exports = {
   prefix,
+  important: true,
   content: [
-    "./projects/traent/ngx-paginator/**/*.{html,ts,scss}",
+    "./projects/traent/ngx-paginator/src/lib/**/*.{html,ts,scss}",
+    "./projects/example-app/src/**/*.{html,ts,scss}",
   ],
   theme: {
     extend: { ...tw_traent.theme },
